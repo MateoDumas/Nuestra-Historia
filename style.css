@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+:root {
+  --rosa-suave: #ffdde1;
+  --rosa-intenso: #ff6b81;
+  --rosa-pastel: #ffd6e0;
+  --blanco: #ffffff;
+  --texto: #4a4a4a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--rosa-suave);
+  color: var(--texto);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Botón de música */
+.music-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: var(--rosa-intenso);
+  color: var(--blanco);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Secciones */
+.section {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1,
+h2 {
+  color: var(--rosa-intenso);
+  margin-bottom: 1rem;
+}
+
+/* Inicio */
+.inicio {
+  position: relative;
+  background: linear-gradient(135deg, var(--rosa-pastel), var(--blanco));
+  overflow: hidden;
+}
+
+.intro-content h1 {
+  font-size: 2.2rem;
+}
+
+.intro-content p {
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+}
+
+#comenzar {
+  background-color: var(--rosa-intenso);
+  color: var(--blanco);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+#comenzar:hover {
+  transform: scale(1.08);
+}
+
+/* Corazones animados */
+.corazones span {
+  position: absolute;
+  bottom: 0;
+  font-size: 1.5rem;
+  animation: subir 6s linear infinite;
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* Historia */
+.historia {
+  background-color: var(--blanco);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.timeline-item {
+  background-color: var(--rosa-pastel);
+  padding: 1.2rem;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Galería */
+.momentos {
+  background-color: var(--rosa-suave);
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.galeria img {
+  width: 90%;
+  max-width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+/* Carta */
+.carta {
+  background-color: var(--rosa-pastel);
+}
+
+#texto-carta {
+  max-width: 500px;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* Final */
+.final {
+  background: linear-gradient(135deg, var(--rosa-pastel), var(--rosa-intenso));
+  color: var(--blanco);
+  position: relative;
+  overflow: hidden;
+}
+
+.corazones-final span {
+  position: absolute;
+  bottom: 0;
+  font-size: 1.5rem;
+  animation: subir 6s linear infinite;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  #comenzar {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.9rem;
+  }
+
+  .carrusel-contenedor img {
+    height: 250px;
+  }
+}
+
+/* Carrusel automático */
+.carrusel {
+  width: 90%;
+  max-width: 600px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 2rem;
+  position: relative;
+}
+
+.carrusel-contenedor {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.carrusel-contenedor img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carrusel-contenedor img {
+    height: 250px;
+  }
+}
+
+
+@keyframes deslizar {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-900%);
+  }
+
+  /* 10 imágenes: -100% * (10 - 1) */
+}
